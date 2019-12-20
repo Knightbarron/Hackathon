@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.github.tenx.xcom">
+    package="com.github.tenx.agtechfarmer">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
@@ -11,23 +11,24 @@
 
     <application
         android:usesCleartextTraffic="true"
-        android:name=".base.BaseApplication"
+        android:name="com.github.tenx.agtechfarmer.base.BaseApplication"
         android:allowBackup="true"
         android:icon="@mipmap/agtech"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/agtech"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.business.funcnatilies.BusinessFunctionalityActivity" />
-        <activity android:name=".ui.business.main.BusinessMainActivity">
+        <activity android:name="com.github.tenx.agtechfarmer.ui.business.funcnatilies.BusinessFunctionalityActivity" />
+        <activity android:name="com.github.tenx.agtechfarmer.ui.business.main.BusinessMainActivity">
 
 
 
         </activity>
-        <activity android:name=".ui.auth.AuthenticationActivity">
+        <activity android:name="com.github.tenx.agtechfarmer.ui.auth.AuthenticationActivity">
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.VIEW" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
@@ -35,18 +36,26 @@
 
 
         </activity>
-        <activity android:name=".ui.Services.ServicesActivity" />
-        <activity android:name=".ui.Function.FunctionActivity" >
+        <activity android:name="com.github.tenx.agtechfarmer.ui.Services.ServicesActivity" />
+        <activity android:name="com.github.tenx.agtechfarmer.ui.Function.FunctionActivity" >
 
 
         </activity>
         <activity
-            android:name=".ui.main.MainActivity"
+            android:name="com.github.tenx.agtechfarmer.ui.main.MainActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
 
 
         </activity>
+
+        <service
+            android:name=".service.FcmService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
 
         <meta-data
             android:name="preloaded_fonts"
